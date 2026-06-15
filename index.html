@@ -9,33 +9,58 @@
 <body>
     <nav class="navigation-bar">
         <a href="#">Page de Lorenzo</a>
-        <ul>
+        <button class="burger-menu" id="burgerMenu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="#experiences">Mes expériences</a></li>
             <li><a href="#contact">Me contacter</a></li>
         </ul>
-        <SPAN></SPAN>
     </nav>
 
     <section id="accueil" class="intro">
-        <div class="txt1">Je suis nouveau developpeur ! </div>
-        <button><a href="#contact">Me contacter</a></button>
+        <div class="grid-background"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="intro-content">
+            <div class="terminal-text">
+                <span class="cursor">&gt;</span> Développeur en devenir
+            </div>
+            <div class="txt1">Je suis nouveau developpeur !</div>
+            <p class="tagline">Construisons l'avenir ensemble</p>
+            <button class="cta-button"><a href="#contact">Me contacter</a></button>
+        </div>
     </section>
 
-    <section class="cadre" id="experiences" style="BACKGROUND-COLOR: #f0f0f0;">
-        <h2>Mes expériences</h2>
-        <div class="experience">
-            <h3>Développeur Web</h3>
-            <p>J'ai travaillé sur plusieurs projets web, en utilisant HTML, CSS et JavaScript pour créer des sites interactifs et responsives.</p>
+    <section class="cadre" id="experiences">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>Mes expériences</h2>
         </div>
-        <div class="experience">
-            <h3>Stage en entreprise</h3>
-            <p>J'ai effectué un stage dans une entreprise de développement logiciel, où j'ai contribué à la création d'applications web et mobiles.</p>
+        <div class="experiences-grid">
+            <div class="experience">
+                <span class="exp-number">—</span>
+                <h3>Développeur Web</h3>
+                <p>J'ai travaillé sur plusieurs projets web, en utilisant HTML, CSS et JavaScript pour créer des sites interactifs et responsives.</p>
+            </div>
+            <div class="experience">
+                <span class="exp-number">—</span>
+                <h3>Stage en entreprise</h3>
+                <p>J'ai effectué un stage dans une entreprise de développement logiciel, où j'ai contribué à la création d'applications web et mobiles.</p>
+            </div>
         </div>
-
     </section>
 
     <section class="cadre" id="contact">
-        <h2>Me contacter</h2>
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>Me contacter</h2>
+        </div>
         <form action="submit_form.php" method="POST">
             <label for="name">Nom:</label>
             <input type="text" id="name" name="name" required>
@@ -49,6 +74,24 @@
             <button type="submit">Envoyer</button>
         </form>
     </section>
-    
+
+    <script>
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navMenu = document.getElementById('navMenu');
+
+        burgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            burgerMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                burgerMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
